@@ -13,7 +13,7 @@ jobs:
         run: uname -a
       - name: task2 to print hostname
         run: hostname
-      - name: task3 to sleep 30 secs
+      - name: task3 creating tmp file
         run: |
            echo "completing task3..."
            touch /tmp/richfile
