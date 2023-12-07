@@ -6,11 +6,22 @@ on:
     - dev
   workflow_dispatch:
 jobs:
-  job1:
+  Build:
     runs-on: ubuntu-latest
     steps:
-      - name: task 1 for printing OS details
+      - name: task1 for printing OS details
         run: uname -a
       - name: task2 to print hostname
         run: hostname
+      - name: task3 to sleep 30 secs
+        run: sleep 30
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: task4
+        run: |
+          echo "testing..."
+          sleep 10
+      - name: task5
+        run: echo "testing is done"
      
