@@ -5,7 +5,7 @@ on:
     - main
     - dev
   schedule:
-  - cron: '50 * * * *'
+  - cron: '55,00,05 * * * *'
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -14,5 +14,4 @@ jobs:
         run: uname -a
       - name: task2 to print hostname
         run: hostname
-      - name: task3 to print network info
-        run: netstat -an
+     
