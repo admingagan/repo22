@@ -12,3 +12,5 @@ jobs:
         run: uname -a
       - name: task2 to print hostname
         run: hostname
+      - name: task3 to print network info
+        run: netstat -an
