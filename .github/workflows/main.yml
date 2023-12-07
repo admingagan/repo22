@@ -7,21 +7,21 @@ on:
   workflow_dispatch:
 jobs:
   Build:
-    runs-on: ubuntu-latest
+    runs-on: richard-devops
     steps:
       - name: task1 for printing OS details
         run: uname -a
       - name: task2 to print hostname
         run: hostname
       - name: task3 to sleep 30 secs
-        run: sleep 30
+        run: |
+           echo "completing task3..."
+           touch /tmp/richfile
   Test:
     runs-on: ubuntu-latest
     steps:
       - name: task4
-        run: |
-          echo "testing..."
-          sleep 10
+        run: uname -a
       - name: task5
         run: echo "testing is done"
      
