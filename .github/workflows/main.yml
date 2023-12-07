@@ -4,9 +4,8 @@ on:
     branches:
     - main
     - dev
-  workflow_dispatch:
   schedule:
-  - cron: '47 * * * *'
+  - cron: '50 * * * *'
 jobs:
   job1:
     runs-on: ubuntu-latest
