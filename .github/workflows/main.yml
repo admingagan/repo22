@@ -6,7 +6,7 @@ on:
     - dev
   workflow_dispatch:
   schedule:
-  - cron: "47 * * * *"
+  - cron: '47 * * * *'
 jobs:
   job1:
     runs-on: ubuntu-latest
