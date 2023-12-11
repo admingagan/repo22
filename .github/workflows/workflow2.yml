@@ -9,14 +9,32 @@ env:
   USER1: richardnie
 jobs:
   build:
+    env:
+      USER2: alexnie
     runs-on: ubuntu-latest
     steps:
       - name: CheckOut
         uses: actions/checkout@v4.1.1
       - name: step 2
+        env:
+          USER3: hongjienie
         run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} and retention day is ${{ GITHUB.RETENTION_DAYS}} "
-          echo "Value for variable USER1 is $USER1"
+          echo "Value for variable USER1 is $USER1, USER2 is $USER2, USER3 is $USER3"
           pwd
+          java -version
+      - run: echo "Print value of USER3 is $USER3"
+  test:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v4.1.1
+       - name: step 2
+         run: |
+          ls -l
+          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
+          echo "Value for variable USER1 is $USER1, USER2 is $USER2, USER3 is $USER3"
+
+  
           
