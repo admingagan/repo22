@@ -9,6 +9,7 @@ env:
   USER1: richardnie
 jobs:
   build:
+    environment: dev
     env:
       USER2: alexnie
       USER1: richardnie_jobs
@@ -30,6 +31,7 @@ jobs:
       - run: echo "Print value of USER3 is $USER3"
   test:
      runs-on: ubuntu-latest
+     environment: prod
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
@@ -37,7 +39,17 @@ jobs:
          run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
-          echo "Value for variable USER1 is $USER1, USER2 is $USER2, USER3 is $USER3"
+          echo "Value for variable USER1 is ${{ vars.USER1 }} and SERVER1 is ${{ vars.SERVER1 }}"
+  deploy:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v4.1.1
+       - name: step 2
+         run: |
+          ls -l
+          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
+          echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
 
   
           
