@@ -23,5 +23,5 @@ jobs:
       - name: task4
         run: uname -a
       - name: task5
-        run: echo "testing is done"
+        run:  echo "Value for variable USER1 is ${{ vars.USER1 }} and SERVER1 is ${{ vars.SERVER1 }}"
      
