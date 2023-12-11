@@ -14,6 +14,6 @@ jobs:
       - name: step 2
         run: |
           ls -l
-          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
+          echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} and retention day is ${{ GITHUB.RETENTION_DAYS}} "
           pwd
           
