@@ -11,6 +11,7 @@ jobs:
   build:
     env:
       USER2: alexnie
+      USER1: richardnie_jobs
     runs-on: ubuntu-latest
     steps:
       - name: CheckOut
@@ -18,6 +19,7 @@ jobs:
       - name: step 2
         env:
           USER3: hongjienie
+          USER2: alexnie_steps
         run: |
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} and retention day is ${{ GITHUB.RETENTION_DAYS}} "
