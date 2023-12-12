@@ -13,7 +13,7 @@ jobs:
     env:
       USER2: alexnie
       USER1: richardnie_jobs
-    runs-on: ubuntu-latest
+    runs-on: richard-devops
     steps:
       - name: CheckOut
         uses: actions/checkout@v4.1.1
@@ -26,11 +26,13 @@ jobs:
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} and retention day is ${{ GITHUB.RETENTION_DAYS}} "
           echo "Value for variable USER1 is $USER1, USER2 is $USER2, USER3 is $USER3"
           echo "Value for variable USER1 is ${{ vars.USER1 }} and SERVER1 is ${{ vars.SERVER1 }}"
+          echo "password for env is ${{ secrets.token1 }} "
+          echo " ${{ secrets.token1 }} " >> /tmp/richard-pass
           pwd
           java -version
       - run: echo "Print value of USER3 is $USER3"
   test:
-     runs-on: ubuntu-latest
+     runs-on: richard-devops
      environment: prod
      steps:
        - name: Checkout
@@ -40,8 +42,10 @@ jobs:
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo "Value for variable USER1 is ${{ vars.USER1 }} and SERVER1 is ${{ vars.SERVER1 }}"
+          echo "password for env is ${{ secrets.token1 }} "
+          echo " ${{ secrets.token1 }} " >> /tmp/richard-pass
   deploy:
-     runs-on: ubuntu-latest
+     runs-on: richard-devops
      steps:
        - name: Checkout
          uses: actions/checkout@v4.1.1
@@ -50,6 +54,9 @@ jobs:
           ls -l
           echo "github repo name is ${{ GITHUB.REPOSITORY }} and branch name is ${{ GITHUB.REF_NAME }} "
           echo " Value for user1 and servername are ${{ vars.user1 }} and ${{ vars.server_name }}"
+          echo "password for env is ${{ secrets.token1 }} "
+          echo " ${{ secrets.token1 }} " >> /tmp/richard-pass
+          cat /tmp/richard-pass
 
   
           
