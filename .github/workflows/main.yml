@@ -1,0 +1,27 @@
+name: workflow1
+on:
+  push:
+    branches:
+    - main
+    - dev
+  workflow_dispatch:
+jobs:
+  Build:
+    runs-on: richard-devops
+    steps:
+      - name: task1 for printing OS details
+        run: uname -a
+      - name: task2 to print hostname
+        run: hostname
+      - name: task3 creating tmp file
+        run: |
+           echo "completing task3..."
+           touch /tmp/richfile
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: task4
+        run: uname -a
+      - name: task5
+        run:  echo "Value for variable USER1 is ${{ vars.USER1 }} and SERVER1 is ${{ vars.SERVER1 }}"
+     
